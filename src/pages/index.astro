@@ -1,46 +1,68 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Badge from "../components/Badge.astro";
+import SectionContainer from "../components/SectionContainer.astro";
 import LinkedInIcon from "../components/icons/LimkedIn.astro";
 import SocialPill from "../components/SocialPill.astro";
 import GithubIcon from "../components/icons/Github.astro"
 import MailIcon from "../components/icons/Mail.astro"
+import Experience from "../components/Experience.astro";
+import Briefcase from "../components/icons/Briefcase.astro";
+import Code  from "../components/icons/Code.astro";
+import Projects  from "../components/Projects.astro";
 ---
 
-<Layout title="Portafolio de Jorge - Desarrollador y Programador Backend">
-  <main>
-    <section class="w-full lg:w-[740px] mx-auto py-44">
-		<img class="rounded-full w-12 h-12 mb-5" 
-			src="https://scontent.fbga2-1.fna.fbcdn.net/v/t39.30808-6/343982524_742423350871473_5984298339613892214_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFsp42yEVYMnykEyZ0Gwo3k30wVag3qnEPfTBVqDeqcQwsd3c6vH-MkgQzPRt3aS3VGEYg5ARk9LwRdhR29Kfca&_nc_ohc=1aAIf7t785kQ7kNvgEgcAFh&_nc_ht=scontent.fbga2-1.fna&oh=00_AfBB6l-aIp1-epSzpABP_lRKtTNaLTg18I8dZVkP0zkwbA&oe=663A0EF0" 
+<Layout title="Portafolio de Jorge - Desarrollador y Programador Backend"
+	description="Contrata a Jorge Ibarra para crear tus desarrollos backend">
+  <main class="px-4">
+    <SectionContainer class="py-44 pb-32">
+		<img class="rounded-full size-12 mb-5" 
+			src="../../public/projects/foto_perfil.jpg" 
 			alt="Jorge foto" 
 		/>
-      <h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-5">
-        Hola, soy Jorge <a href="https://www.linkedin.com/in/jorgedibarra/" 
+      <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row 
+	  gap-x-4 pb-6 lg:pb-10">
+        Hola, soy Jorge! <a href="https://www.linkedin.com/in/jorgedibarra/" 
 		target="_blank" 
 		rel="noopener"
 		class="flex justify-center items-center">
 			<Badge>Disponible para trabajar</Badge></a>
       </h1>
-      <h2 class="text-2xl opacity-80 text-wrap">
-        Soy un <span class="text-yellow-200/90">estudiante de ingenieria en sistemas</span> <span> de la universidad de
+      <h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px]">
+        Soy un <span class="text-yellow-200/90">estudiante de ingeniería en sistemas</span> <span> de la universidad de
 			Pamplona.</span> <span>Desarrollador backend en formación, enfocado en java y 
 			spring.</span>
       </h2>
 
-      <nav class="flex gap-x-4 mt-8">
+      <nav class="flex gap-4 mt-8 flex-wrap">
 		<SocialPill href="https://www.linkedin.com/in/jorgedibarra/">
-			<LinkedInIcon class="w-6 h-6"/>
+			<LinkedInIcon class="size-4 md:size-6"/>
 			LinkedIn
 		</SocialPill>
 		<SocialPill href="https://github.com/jorgedibarra">
-			<GithubIcon class="w-6 h-6"/>
+			<GithubIcon class="size-4 md:size-6"/>
 			Github
 		</SocialPill>
-		<SocialPill href="https://github.com/jorgedibarra">
-			<MailIcon class="w-6 h-6"/>
-			ibarrapaezj@gmail.com
+		<SocialPill href="mailto:ibarrapaezj@gmail.com">
+			<MailIcon class="size-4 md:size-6"/>
+			Correo
 		</SocialPill>
 	  </nav>
-    </section>
+    </SectionContainer>
+	<SectionContainer id="experiencia" >
+		<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+			<Briefcase class="size-7"/>
+			Certificaciones y Experiencia laboral
+		</h2>
+		<Experience />
+	</SectionContainer>
+
+	<SectionContainer id="proyectos" >
+		<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+			<Code class="size-7"/>
+			Proyectos
+		</h2>
+		<Projects />
+	</SectionContainer>
   </main>
 </Layout>
