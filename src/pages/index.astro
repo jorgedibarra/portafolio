@@ -10,6 +10,7 @@ import Experience from "../components/Experience.astro";
 import Briefcase from "../components/icons/Briefcase.astro";
 import Code  from "../components/icons/Code.astro";
 import Projects  from "../components/Projects.astro";
+import Cv from "../components/icons/Cv.astro";
 ---
 
 <Layout title="Portafolio de Jorge - Desarrollador y Programador Backend"
@@ -46,6 +47,10 @@ import Projects  from "../components/Projects.astro";
 		<SocialPill href="mailto:ibarrapaezj@gmail.com">
 			<MailIcon class="size-4 md:size-6"/>
 			Correo
+		</SocialPill>
+		<SocialPill href="../../public/projects/cv_jorge.pdf" target="_blank">
+			<Cv class="size-4 md:size-6"/>
+			CV
 		</SocialPill>
 	  </nav>
     </SectionContainer>
