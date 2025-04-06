@@ -5,19 +5,28 @@ import Link from "./icons/Link.astro";
 import LinkButton from "./LinkButton.astro";
 import ProjectPill from "./ProjectPill.astro";
 import Java from "./icons/Java.astro";
+import React from "./icons/React.astro";
 
 const PROJECTS = [
   {
-    title: "Inventory-motor",
+    title: "InventoryMotor",
     description:
       "Sitio web para llevar la gestion del inventario en una empresa que vende repuestos para motos, se puede llevar un control de las existencias, las ventas y los pedidos.",
-    link: "#",
+    link: "https://jorgedibarra.github.io/inventario-front/",
     github: "https://github.com/jorgedibarra/Inventory-Motor",
-    image: "../../public/projects/inventory-motor.jpg",
+    image: "../../public/projects/inventoryMotor.png",
+  },
+  {
+    title: "Gestor de tareas",
+    description:
+      "Sitio web para llevar la gestión eficiente de tareas académicas dentro de un entorno institucional. Utiliza una arquitectura en capas que mejora la escalabilidad, el mantenimiento y la seguridad del sistema.",
+    link: "https://jorgedibarra.github.io/inventario-front/",
+    github: "https://github.com/jorgedibarra/Inventory-Motor",
+    image: "../../public/projects/proximamente.webp",
   },
 ];
 ---
-
+<div class="flex flex-col space-y-16">
 {
   PROJECTS.map(({ title, description, image, github, link }) => (
     <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
@@ -32,7 +41,7 @@ const PROJECTS = [
         </div>
       </div>
       <div class="w-full md:w-1/2 md:max-w-lg">
-        <h3 class="text-2xl font-semibold text-yellow-200/80 mb-2">{title}</h3>
+        <h3 class="text-2xl font-semibold text-green-300 mb-2">{title}</h3>
         <div class="flex flex-wrap mt-2">
           <ul class="flex gap-x-4 flex-row">
             <ProjectPill>
@@ -43,8 +52,12 @@ const PROJECTS = [
               <Spring class="size-2 md:size-4" />
               <li>Spring Boot</li>
             </ProjectPill>
+            <ProjectPill>
+              <React class="size-2 md:size-4" />
+              <li>React</li>
+            </ProjectPill>
           </ul>
-          <div class="mt-2 text-gray-300">{description}</div>
+          <div class="mt-2 text-gray-200">{description}</div>
           <footer class="flex items-end justify-start mt-4 gap-x-4">
             {github && (
               <LinkButton href={github}>
@@ -64,3 +77,4 @@ const PROJECTS = [
     </article>
   ))
 }
+</div>

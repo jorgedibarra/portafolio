@@ -7,17 +7,21 @@ import SocialPill from "../components/SocialPill.astro";
 import GithubIcon from "../components/icons/Github.astro"
 import MailIcon from "../components/icons/Mail.astro"
 import Experience from "../components/Experience.astro";
-import Briefcase from "../components/icons/Briefcase.astro";
 import Code  from "../components/icons/Code.astro";
 import Projects  from "../components/Projects.astro";
 import Cv from "../components/icons/Cv.astro";
+import Skills from "../components/Skills.astro";
+import UserCode from "@/components/icons/UserCode.astro";
+import AboutMe from "../components/AboutMe.astro";
+import Certificate from "../components/icons/Certificate.astro";
+import Puzle from "../components/icons/Puzle.astro";
 ---
 
 <Layout title="Portafolio de Jorge - Desarrollador y Programador Backend"
 	description="Contrata a Jorge Ibarra para crear tus desarrollos backend">
   <main class="px-4">
     <SectionContainer class="py-44 pb-32">
-		<img class="rounded-full size-12 mb-5" 
+		<img class="rounded-full size-24 mb-5" 
 			src="../../public/projects/foto_perfil.jpg" 
 			alt="Jorge foto" 
 		/>
@@ -29,10 +33,10 @@ import Cv from "../components/icons/Cv.astro";
 		class="flex justify-center items-center">
 			<Badge>Disponible para trabajar</Badge></a>
       </h1>
-      <h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px]">
-        Soy un <span class="text-yellow-200/90">estudiante de ingeniería en sistemas</span> <span> de la universidad de
-			Pamplona.</span> <span>Desarrollador backend en formación, enfocado en java y 
-			spring.</span>
+      <h2 class="text-xl lg:text-2xl text-gray-200 text-wrap max-w-[700px]">
+        Soy un <span class="text-green-300">ingeniero de sistemas en formación</span> <span> de la universidad de
+			Pamplona.</span> Con <span  class="text-green-300">experiencia en el desarrollador backend,</span> enfocado en Java y 
+			el ecosistema de Spring.
       </h2>
 
       <nav class="flex gap-4 mt-8 flex-wrap">
@@ -42,32 +46,45 @@ import Cv from "../components/icons/Cv.astro";
 		</SocialPill>
 		<SocialPill href="https://github.com/jorgedibarra">
 			<GithubIcon class="size-4 md:size-6"/>
-			Github
+			GitHub
 		</SocialPill>
 		<SocialPill href="mailto:ibarrapaezj@gmail.com">
 			<MailIcon class="size-4 md:size-6"/>
 			Correo
 		</SocialPill>
-		<SocialPill href="../../public/projects/cv_jorge.pdf" target="_blank">
+		<SocialPill href="../../public/projects/cv_jorge_Ibarra.pdf" target="_blank">
 			<Cv class="size-4 md:size-6"/>
-			CV
+			Hoja de vida
 		</SocialPill>
 	  </nav>
     </SectionContainer>
-	<SectionContainer id="experiencia" >
-		<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-			<Briefcase class="size-7"/>
-			Certificaciones y Experiencia laboral
-		</h2>
-		<Experience />
-	</SectionContainer>
-
-	<SectionContainer id="proyectos" >
+	<SectionContainer id="proyectos" class="py-20" >
 		<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
 			<Code class="size-7"/>
 			Proyectos
 		</h2>
 		<Projects />
+	</SectionContainer>
+	<SectionContainer id="habilidades" class="py-20" > 
+		<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+			<Puzle class="size-7"/>
+			Habilidades
+		</h2>
+		<Skills />
+	</SectionContainer>
+	<SectionContainer id="experiencia" class="py-20">
+		<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+			<Certificate class="size-7"/>
+			Educación y Certificaciones
+		</h2>
+		<Experience />
+	</SectionContainer>
+	<SectionContainer id="sobre-mi" class="py-20">
+		<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+			<UserCode class="size-7"/>
+			Sobre mí
+		</h2>
+		<AboutMe />
 	</SectionContainer>
   </main>
 </Layout>
