@@ -1,0 +1,33 @@
+---
+import ExperienceItem from "../components/ExperienceItem.astro";
+
+const CERTIFICATIONS = [
+  {
+    date: "2026",
+    title: "Ingeniero de Sistemas - Universidad de Pamplona",
+    description: "Titulo profesional en Ingenieria de Sistemas.",
+  },
+  {
+    date: "2023 - 2024",
+    title: "Java Spring | Java Spring Security | Git y GitHub",
+    description:
+      "Me certifique en Java Spring para desarrollar aplicaciones backend escalables con arquitectura en capas. Tambien en Java Spring Security, implementando autenticacion y autorizacion con JWT. Ademas, fortalezi mi manejo de Git y GitHub.",
+  },
+  {
+    date: "2022",
+    title: "Mision TIC - Desarrollo de aplicaciones web",
+    description:
+      "Certificacion en desarrollo de aplicaciones web del Ministerio TIC y la Universidad Industrial de Santander.",
+  },
+];
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+  {
+    CERTIFICATIONS.map((certification) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...certification} />
+      </li>
+    ))
+  }
+</ol>

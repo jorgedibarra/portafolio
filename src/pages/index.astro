@@ -4,87 +4,113 @@ import Badge from "../components/Badge.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import LinkedInIcon from "../components/icons/LimkedIn.astro";
 import SocialPill from "../components/SocialPill.astro";
-import GithubIcon from "../components/icons/Github.astro"
-import MailIcon from "../components/icons/Mail.astro"
+import GithubIcon from "../components/icons/Github.astro";
+import MailIcon from "../components/icons/Mail.astro";
 import Experience from "../components/Experience.astro";
-import Code  from "../components/icons/Code.astro";
-import Projects  from "../components/Projects.astro";
+import Certifications from "../components/Certifications.astro";
+import Code from "../components/icons/Code.astro";
+import Projects from "../components/Projects.astro";
 import Cv from "../components/icons/Cv.astro";
 import Skills from "../components/Skills.astro";
-import UserCode from "@/components/icons/UserCode.astro";
+import UserCode from "../components/icons/UserCode.astro";
 import AboutMe from "../components/AboutMe.astro";
 import Certificate from "../components/icons/Certificate.astro";
 import Puzle from "../components/icons/Puzle.astro";
 ---
 
-<Layout title="Portafolio de Jorge - Desarrollador y Programador Backend"
-	description="Contrata a Jorge Ibarra para crear tus desarrollos backend">
+<Layout
+  title="Portafolio de Jorge - Desarrollador"
+  description="Contrata a Jorge Ibarra para crear tus desarrollos"
+>
   <main class="px-4">
     <SectionContainer class="py-44 pb-32">
-		<img class="rounded-full size-24 mb-5" 
-			src="/projects/foto_perfil.jpg" 
-			alt="Jorge foto" 
-		/>
-      <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row 
-	  gap-x-4 pb-6 lg:pb-10">
-        Hola, soy Jorge! <a href="https://www.linkedin.com/in/jorgedibarra/" 
-		target="_blank" 
-		rel="noopener"
-		class="flex justify-center items-center">
-			<Badge>Disponible para trabajar</Badge></a>
+      <div class="mb-5 size-24 rounded-full overflow-hidden shrink-0">
+        <img
+          src="/projects/foto_perfil.jpeg"
+          alt="Jorge foto"
+          class="h-full w-full object-cover object-center"
+        />
+      </div>
+      <h1
+        class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row
+	  gap-x-4 pb-6 lg:pb-10"
+      >
+        Hola, soy Jorge! <a
+          href="https://www.linkedin.com/in/jorgedibarra/"
+          target="_blank"
+          rel="noopener"
+          class="flex justify-center items-center"
+        >
+          <Badge>Disponible para trabajar</Badge></a
+        >
       </h1>
       <h2 class="text-xl lg:text-2xl text-gray-200 text-wrap max-w-[700px]">
-        Soy un <span class="text-green-300">ingeniero de sistemas en formación</span> <span> de la universidad de
-			Pamplona.</span> Con <span  class="text-green-300">experiencia en el desarrollador backend,</span> enfocado en Java y 
-			el ecosistema de Spring.
+        Soy ingeniero de sistemas y
+        <span class="text-green-300">desarrollador full-stack</span>, con
+        experiencia en
+        <span class="text-green-300">Java, Spring, NestJS y Angular</span>.
+        Construyo soluciones
+        <span class="text-green-300">end-to-end</span>, integrando
+        <span class="text-green-300">inteligencia artificial</span>
+        y buenas prácticas de desarrollo.
       </h2>
 
       <nav class="flex gap-4 mt-8 flex-wrap">
-		<SocialPill href="https://www.linkedin.com/in/jorgedibarra/">
-			<LinkedInIcon class="size-5 md:size-6"/>
-			LinkedIn
-		</SocialPill>
-		<SocialPill href="https://github.com/jorgedibarra">
-			<GithubIcon class="size-5 md:size-6"/>
-			GitHub
-		</SocialPill>
-		<SocialPill href="mailto:ibarrapaezj@gmail.com">
-			<MailIcon class="size-5 md:size-6"/>
-			Correo
-		</SocialPill>
-		<SocialPill href="https://drive.google.com/uc?export=download&id=1lvJL9MOJRu1bbAXmSFXgfZgGWf9SEklP" target="_blank">
-			<Cv class="size-5 md:size-6"/>
-			Hoja de vida
-		</SocialPill>
-	  </nav>
+        <SocialPill href="https://www.linkedin.com/in/jorgedibarra/">
+          <LinkedInIcon class="size-5 md:size-6" />
+          LinkedIn
+        </SocialPill>
+        <SocialPill href="https://github.com/jorgedibarra">
+          <GithubIcon class="size-5 md:size-6" />
+          GitHub
+        </SocialPill>
+        <SocialPill href="mailto:ibarrapaezj@gmail.com">
+          <MailIcon class="size-5 md:size-6" />
+          Correo
+        </SocialPill>
+        <SocialPill
+          href="https://drive.google.com/uc?export=download&id=1lvJL9MOJRu1bbAXmSFXgfZgGWf9SEklP"
+          target="_blank"
+        >
+          <Cv class="size-5 md:size-6" />
+          Hoja de vida
+        </SocialPill>
+      </nav>
     </SectionContainer>
-	<SectionContainer id="proyectos" class="py-20" >
-		<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-			<Code class="size-7"/>
-			Proyectos
-		</h2>
-		<Projects />
-	</SectionContainer>
-	<SectionContainer id="habilidades" class="py-20" > 
-		<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-			<Puzle class="size-7"/>
-			Habilidades
-		</h2>
-		<Skills />
-	</SectionContainer>
-	<SectionContainer id="experiencia" class="py-20">
-		<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-			<Certificate class="size-7"/>
-			Educación y Certificaciones
-		</h2>
-		<Experience />
-	</SectionContainer>
-	<SectionContainer id="sobre-mi" class="py-20">
-		<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-			<UserCode class="size-7"/>
-			Sobre mí
-		</h2>
-		<AboutMe />
-	</SectionContainer>
+    <SectionContainer id="experiencia" class="py-20">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <Certificate class="size-7" />
+        Experiencia
+      </h2>
+      <Experience />
+    </SectionContainer>
+    <SectionContainer id="proyectos" class="py-20">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <Code class="size-7" />
+        Proyectos
+      </h2>
+      <Projects />
+    </SectionContainer>
+    <SectionContainer id="habilidades" class="py-20">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <Puzle class="size-7" />
+        Habilidades
+      </h2>
+      <Skills />
+    </SectionContainer>
+    <SectionContainer id="certificaciones" class="py-20">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <Certificate class="size-7" />
+        Certificaciones
+      </h2>
+      <Certifications />
+    </SectionContainer>
+    <SectionContainer id="sobre-mi" class="py-20">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <UserCode class="size-7" />
+        Sobre mí
+      </h2>
+      <AboutMe />
+    </SectionContainer>
   </main>
 </Layout>
