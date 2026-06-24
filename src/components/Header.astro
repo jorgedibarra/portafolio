@@ -34,48 +34,84 @@ const navItems = [
 ---
 
 <header
-  class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
+  class="fixed top-0 z-10 w-full px-2 pt-2"
 >
-  <nav
-    class="flex px-3 text-xs sm:text-sm md:text-base font-medium rounded-full text-white-200 justify-center items-center"
-  >
-    {
-      navItems.map((link) => (
-        <a
-          class="relative block px-2 py-2 transition hover:text-green-300 dark:hover:text-yellow-400"
-          aria-label={link.label}
-          href={link.url}
-        >
-          {link.title}
-        </a>
-      ))
-    }
-  </nav>
+  <div class="mx-auto flex w-full justify-end md:w-fit md:justify-center">
+    <nav
+      class="nav-shell hidden items-center justify-center gap-x-1 gap-y-1 rounded-full px-3 py-1 text-xs font-medium text-white-200 md:flex sm:text-sm md:text-base"
+    >
+      {
+        navItems.map((link) => (
+          <a
+            class="relative block px-2 py-2 text-center transition hover:text-green-300 dark:hover:text-yellow-400"
+            data-nav-link={link.label}
+            href={link.url}
+          >
+            {link.title}
+          </a>
+        ))
+      }
+    </nav>
+
+    <details class="nav-shell group mt-0 ml-auto w-fit rounded-full bg-white/10 p-1 md:hidden dark:bg-white/10" data-mobile-menu>
+      <summary
+        class="flex w-fit list-none items-center justify-end rounded-full px-4 py-3 text-white-200 transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-green-400 group-open:bg-transparent group-open:hover:bg-transparent [&::-webkit-details-marker]:hidden"
+        aria-label="Abrir menú de navegación"
+      >
+        <span class="sr-only">Abrir menú de navegación</span>
+        <span class="relative flex h-4 w-5 flex-col justify-between">
+          <span class="block h-0.5 w-full rounded-full bg-current transition-transform duration-200 group-open:translate-y-[7px] group-open:rotate-45"></span>
+          <span class="block h-0.5 w-full rounded-full bg-current transition-opacity duration-200 group-open:opacity-0"></span>
+          <span class="block h-0.5 w-full rounded-full bg-current transition-transform duration-200 group-open:-translate-y-[7px] group-open:-rotate-45"></span>
+        </span>
+      </summary>
+
+      <div class="mt-2 overflow-hidden rounded-3xl border border-white/10 bg-white/85 p-2 shadow-lg backdrop-blur dark:bg-gray-900/90">
+        <nav class="flex flex-col gap-1 text-sm font-medium text-slate-900 dark:text-white-200">
+          {
+            navItems.map((link) => (
+              <a
+                class="rounded-2xl px-4 py-3 transition hover:bg-slate-900/5 hover:text-green-600 dark:hover:bg-white/5 dark:hover:text-yellow-400"
+                data-nav-link={link.label}
+                href={link.url}
+              >
+                {link.title}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+    </details>
+  </div>
 </header>
 
 <script>
-  document.addEventListener("astro:page-load", () => {
+  const initMobileMenu = () => {
     const sections = document.querySelectorAll("section");
-    const navItems = document.querySelectorAll("header nav a");
+    const navItems = document.querySelectorAll("header [data-nav-link]");
 
     const callback = (entries: any[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-yellow-500");
-            } else {
-              item.classList.remove("text-yellow-500");
-            }
-          });
-        }
+      const visibleSections = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((left, right) => left.boundingClientRect.top - right.boundingClientRect.top);
+
+      if (!visibleSections.length) {
+        return;
+      }
+
+      const activeSectionId = visibleSections[0].target.id;
+
+      navItems.forEach((item) => {
+        const isActive = item.getAttribute("data-nav-link") == activeSectionId;
+        item.classList.toggle("text-green-300", isActive);
+        item.classList.toggle("dark:text-yellow-400", isActive);
       });
     };
 
     const observer = new IntersectionObserver(callback, {
       root: null,
-      rootMargin: "0px",
-      threshold: 0.3,
+      rootMargin: "-35% 0px -55% 0px",
+      threshold: 0,
     });
 
     sections.forEach((section) => {
@@ -92,14 +128,32 @@ const navItems = [
         });
       }
     };
-  });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initMobileMenu, { once: true });
+  } else {
+    initMobileMenu();
+  }
 </script>
 
 <style>
-  nav {
+  .nav-shell {
     animation: nav-shadown 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 100px;
+  }
+
+  details[data-mobile-menu][open] {
+    animation: none;
+    animation-timeline: none;
+    background: transparent !important;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  details[data-mobile-menu][open] > div {
+    display: block;
   }
 
   @keyframes nav-shadown {
